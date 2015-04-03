@@ -11,8 +11,8 @@ class MakeCsvProjectFile < Jekyll::Command
     end
 
     def init_with_program(prog)
-      prog.command(:cfacsv) do |c|
-        c.syntax "cfacsv"
+      prog.command(:build) do |c|
+        c.syntax "build [options]"
         c.description 'generate csv file for code for america from _data/projects.yml'
         c.action do |args, options|
             data_files = YAML.load_file('./_data/projects.yml')
