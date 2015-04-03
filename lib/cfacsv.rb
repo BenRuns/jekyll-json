@@ -1,45 +1,28 @@
 require 'yaml'
 require 'csv'
+require 'jekyll'
 
 
 
-# class MakeCsvProjectFile < Jekyll::Command
-#   class << self
+module Jekyll
 
+    class MakeCsvProjectFile < Generator
 
-#     def init_with_program(prog)
-#       prog.command(:build) do |c|
-#         c.syntax "build [options]"
-#         c.description 'generate csv file for code for america from _data/projects.yml'
-#         c.action do |args, options|
-#             data_files = YAML.load_file('./_data/projects.yml')
-#             header = %w[name description link_url code_url type categories status]
+        safe true
 
-#             CSV.open("./projects/projects.csv", "wb") do |csv|
-#               csv << header
-#               data_files.each do |data|
-#                 row = []
-#                 header.each { |header| data[header] ? row << data[header] : row << nil }
-#                 csv << row
-#               end
-#             end
-#         end
-#       end
-#     end
-#   end
-# end
-class MyNewCommand < Jekyll::Command
-  class << self
-    def init_with_program(prog)
-      prog.command(:sayhello) do |c|
-        c.syntax "sayhello [options]"
-        c.description 'Create a new Jekyll site.'
-        c.option 'dest', '-d DEST', 'Where the site should go.'
+        def generate(site)
+            
+            data_files = YAML.load_file(File.join(site.source, '_data/projects.yml'))
+            header = %w[name description link_url code_url type categories status]
 
-        c.action do |args, options|
-          puts "Hello World"
+            CSV.open(File.join(site.source,"projects/projects.csv"), "wb") do |csv|
+              csv << header
+              data_files.each do |data|
+                row = []
+                header.each { |header| data[header] ? row << data[header] : row << nil }
+                csv << row
+              end
+            end
         end
-      end
     end
-  end
 end
