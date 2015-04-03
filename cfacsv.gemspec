@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cfacsv'
   s.version     = '0.0.0'
-  s.date        = '2015-4-02'
+  s.date        = '2015-04-02'
   s.summary     = "Gem for yaml to csv for cfa"
   s.description = "Gem for yaml to csv for cfa"
   s.authors     = ["Ben Patterson"]
