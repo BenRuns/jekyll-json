@@ -32,9 +32,8 @@ class MyNewCommand < Jekyll::Command
   class << self
     def init_with_program(prog)
       prog.command(:sayhello) do |c|
-        c.syntax "new [options]"
+        c.syntax "sayhello [options]"
         c.description 'Create a new Jekyll site.'
-
         c.option 'dest', '-d DEST', 'Where the site should go.'
 
         c.action do |args, options|
