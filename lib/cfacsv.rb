@@ -14,7 +14,7 @@ module Jekyll
             data_files = YAML.load_file(File.join(site.source, '_data/projects.yml'))
             header = %w[name description link_url code_url type categories status]
 
-            CSV.open(File.join(site.source,"projects/.csv"), "wb") do |csv|
+            CSV.open(File.join(site.source,"projects.csv"), "wb") do |csv|
               csv << header
               data_files.each do |data|
                 row = []
