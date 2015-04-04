@@ -16,7 +16,7 @@ module Jekyll
             headers = %w[name description link_url code_url type categories status]
             path_to_destination = File.join(site.source,"projects/index")
             convert_yaml_to_csv(yml_file, path_to_destination, headers)
-            convert_yaml_to_json(yml_file, path_to_destination)
+            convert_yaml_to_json(yml_file, path_to_destination,headers)
         end
 
         def convert_yaml_to_csv(yml_file, path_to_destination, headers)
