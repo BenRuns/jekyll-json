@@ -32,7 +32,7 @@ module Jekyll
 
         def convert_yaml_to_json(yml_file, path_to_destination)
             File.open(path_to_destination + '.json', 'wb') do |json|
-                json JSON.dump(yml_file)
+                json << JSON.dump(yml_file)
             end
         end 
 
