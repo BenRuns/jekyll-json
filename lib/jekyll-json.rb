@@ -6,13 +6,13 @@ require 'json'
 
 module Jekyll
 
-    class MakeCsvProjectFile < Generator
+    class ConvertYamlToCsvJson < Generator
 
         safe true
 
         def generate(site)
             files_to_generate = YAML.load_file(File.join(site.source, '_config.yml'))
-            files_to_generate['cfacsv'].each do |options| 
+            files_to_generate['serve-json-csv'].each do |options| 
                 yml_file = YAML.load_file(File.join(site.source, options['origin']))
                 headers = options['headers']
                 path_to_destination = File.join(site.source, options['destination'] + '/index')
@@ -20,7 +20,7 @@ module Jekyll
                     convert_yaml_to_csv(yml_file, path_to_destination, headers)
                 end
                 if options['json'] == true 
-                    convert_yaml_to_json(yml_file, path_to_destination,headers)
+                    convert_yaml_to_json(yml_file, path_to_destination, headers, options['filter-json'])
                 end
             end
         end
@@ -36,12 +36,14 @@ module Jekyll
             end
         end 
 
-        def convert_yaml_to_json(yml_file, path_to_destination, headers)
+        def convert_yaml_to_json(yml_file, path_to_destination, headers, filter_options )
             File.open(path_to_destination + '.json', 'wb') do |json|
-                cleaned_yml = yml_file.collect do |entry| 
+                if filter_options = true
+                yml_file = yml_file.collect do |entry| 
                                 entry.select{ |key, value| headers.include? key  }
                              end
-                json << JSON.dump(cleaned_yml)
+                end
+                json << JSON.dump(yml_file)
             end
         end 
     end
