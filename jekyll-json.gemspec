@@ -12,3 +12,4 @@ Gem::Specification.new do |s|
     'https://github.com/BenRuns/jekyll-json'
   s.license       = 'MIT'
 end
+

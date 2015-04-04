@@ -38,7 +38,7 @@ module Jekyll
 
         def convert_yaml_to_json(yml_file, path_to_destination, headers, filter_options )
             File.open(path_to_destination + '.json', 'wb') do |json|
-                if filter_options = true
+                if filter_options == true
                 yml_file = yml_file.collect do |entry| 
                                 entry.select{ |key, value| headers.include? key  }
                              end
