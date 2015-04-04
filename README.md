@@ -39,12 +39,12 @@ Given a yml file that looks like
 ```
 - name: "Jack"
   country: "Australia"
-  etc: "like cake"
+  etc: "likes cake"
   pail: "empty"
   
 - name: "Jill"
   country: "Oz"
-  etc: "like ice cream"
+  etc: "likes ice cream"
   pail: "full"
   
 ```
