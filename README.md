@@ -1,6 +1,6 @@
 #Jekyll-Json
 
-This gem is created to be used with jekyll webpages. It will take a yaml file and build a index.csv file an index.json file in the folder that you specify in _config.yml 
+This gem is created to be used with jekyll webpages. It will take a yaml file and build an index.csv file an index.json file in the folder that you specify in _config.yml 
 
 ## Installing 
 
