@@ -30,11 +30,13 @@ module Jekyll
             end
         end 
 
-        def convert_yaml_to_json(yml_file, path_to_destination)
+        def convert_yaml_to_json(yml_file, path_to_destination, headers)
             File.open(path_to_destination + '.json', 'wb') do |json|
-                json << JSON.dump(yml_file)
+                cleaned_yml = yml_file.collect do |entry| 
+                                entry.collect{ |key, value| if key in headers  }  }
+                             end
+                json << JSON.dump(cleaned_yml)
             end
         end 
-
     end
 end
