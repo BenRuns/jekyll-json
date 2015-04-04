@@ -15,7 +15,7 @@ module Jekyll
             files_to_generate['cfacsv'].each do |options| 
                 yml_file = YAML.load_file(File.join(site.source, options['origin']))
                 headers = options['headers']
-                path_to_destination = File.join(site.source, options['origin'] + '/index')
+                path_to_destination = File.join(site.source, options['destination'] + '/index')
                 if options['csv']  == true 
                     convert_yaml_to_csv(yml_file, path_to_destination, headers)
                 end
