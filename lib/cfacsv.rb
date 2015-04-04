@@ -20,7 +20,7 @@ module Jekyll
         def convert_yaml_to_csv(yml_file, path_to_destination, headers)
             CSV.open(path_to_destination, "wb") do |csv|
               csv << headers
-              data_files.each do |data|
+              yml_file.each do |data|
                 row = []
                 headers.each { |header| data[header] ? row << data[header] : row << nil }
                 csv << row
