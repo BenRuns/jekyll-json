@@ -11,12 +11,18 @@ module Jekyll
         safe true
 
         def generate(site)
-            
-            yml_file = YAML.load_file(File.join(site.source, '_data/projects.yml'))
-            headers = %w[name description link_url code_url type categories status]
-            path_to_destination = File.join(site.source,"projects/index")
-            convert_yaml_to_csv(yml_file, path_to_destination, headers)
-            convert_yaml_to_json(yml_file, path_to_destination,headers)
+            files_to_generate = YAML.load_file(File.join(site.source, '_config.yml'))
+            files_to_generate['cfacsv'].each do |options| 
+                yml_file = YAML.load_file(File.join(site.source, options['origin']))
+                headers = options['headers']
+                path_to_destination = File.join(site.source, options['origin'] + '/index')
+                if options['csv']  == true 
+                    convert_yaml_to_csv(yml_file, path_to_destination, headers)
+                end
+                if options['json'] == true 
+                    convert_yaml_to_json(yml_file, path_to_destination,headers)
+                end
+            end
         end
 
         def convert_yaml_to_csv(yml_file, path_to_destination, headers)
