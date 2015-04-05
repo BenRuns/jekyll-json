@@ -1,7 +1,7 @@
 #Jekyll-Json  
 [![Gem Version](https://badge.fury.io/rb/jekyll-json.svg)](http://badge.fury.io/rb/jekyll-json)
 
-This gem is created to be used with [jekyll webpages](http://jekyllrb.com/). It will take a yaml file and build an index.csv file an index.json file in the folder that you specify in [_config.yml](http://jekyllrb.com/docs/configuration/) 
+This gem is created to be used with [jekyll webpages](http://jekyllrb.com/). It will take a yaml file and build an index.csv file or an index.json file in the folder that you specify in [_config.yml](http://jekyllrb.com/docs/configuration/) 
 
 ## Installing 
 
@@ -73,10 +73,27 @@ if `filter-json` is set to `true`, then it will produce an index.json file
     etc: "likes ice cream"
 }]
 ```
-set csv and json to true or false depending on whether you want the file generated.
+if `filter-json` is set to `false`, then it will produce an index.json file 
+
+```
+[{
+    name: "Jack",
+    country: "Australia",
+    etc: "likes cake",
+    pail: "empty"
+},
+{
+    name: "Jill",
+    country: "Oz",
+    etc: "likes ice cream",
+    pail: "full"
+}]
+```
+Set csv and json to true or false depending on whether you want corrsponding file type generated.
 
 
 run `jekyll build` to generate the files
+
 ### Contributing.
 
 Let me know if there are issue's you're running into . This is a first release and there is still plenty of work to put in to make this less fragile.
