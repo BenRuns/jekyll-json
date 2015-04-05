@@ -1,6 +1,7 @@
-#Jekyll-Json
+#Jekyll-Json  
+[![Gem Version](https://badge.fury.io/rb/jekyll-json.svg)](http://badge.fury.io/rb/jekyll-json)
 
-This gem is created to be used with jekyll webpages. It will take a yaml file and build a index.csv file an index.json file in the folder that you specify in _config.yml 
+This gem is created to be used with [jekyll webpages](http://jekyllrb.com/). It will take a yaml file and build an index.csv file an index.json file in the folder that you specify in [_config.yml](http://jekyllrb.com/docs/configuration/) 
 
 ## Installing 
 
@@ -39,12 +40,12 @@ Given a yml file that looks like
 ```
 - name: "Jack"
   country: "Australia"
-  etc: "like cake"
+  etc: "likes cake"
   pail: "empty"
   
 - name: "Jill"
   country: "Oz"
-  etc: "like ice cream"
+  etc: "likes ice cream"
   pail: "full"
   
 ```
