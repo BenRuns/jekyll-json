@@ -79,7 +79,7 @@ set csv and json to true or false depending on whether you want the file generat
 run `jekyll build` to generate the files
 ### Contributing.
 
-Let me know if there are issue's you're running into . This is a first release and there is still plenty of work to put in to make this less fragile.
+Let me know if there are issues you're running into . This is a first release and there is still plenty of work to put in to make this less fragile.
 Fork the repo, make a pull request etc...
 
 
