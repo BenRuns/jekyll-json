@@ -1,4 +1,4 @@
-#Jekyll-Json  
+# Jekyll-Json  
 [![Gem Version](https://badge.fury.io/rb/jekyll-json.svg)](http://badge.fury.io/rb/jekyll-json)
 
 This gem is created to be used with [jekyll webpages](http://jekyllrb.com/). It will take a yaml file and build an index.csv file or an index.json file in the folder that you specify in [_config.yml](http://jekyllrb.com/docs/configuration/) 
